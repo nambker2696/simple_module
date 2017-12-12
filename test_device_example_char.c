@@ -8,8 +8,18 @@
 #define BUFFER_LENGTH 256               ///< The buffer length (crude but fine)
 static char receive[BUFFER_LENGTH];     ///< The receive buffer from the LKM
 
+void menu(){
+   printf("1. Read DEVICE_EXAMPLE_CHAR \n");
+   printf("2. Write DEVICE_EXAMPLE_CHAR \n");
+   printf("3. Exit\n");
+}
+void del(){
+
+}
+
 int main(){
    int ret, fd;
+   int choose = 0;
    char stringToSend[BUFFER_LENGTH];
    printf("Starting device test code example...\n");
    fd = open("/dev/device_example_char", O_RDWR);             // Open the device with read/write access
@@ -17,6 +27,19 @@ int main(){
       perror("Failed to open the device...");
       return errno;
    }
+
+   do{
+      menu();
+      while (getchar() != '\n');
+      continue;
+      scanf("%[^\n]%*c", choose);
+      
+
+   }
+   while(choose != 3)
+
+
+
    printf("Type in a short string to send to the kernel module:\n");
    scanf("%[^\n]%*c", stringToSend);                // Read in a string (with spaces)
    printf("Writing message to the device [%s].\n", stringToSend);
