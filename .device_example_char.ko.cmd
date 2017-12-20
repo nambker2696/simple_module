@@ -1,1 +1,0 @@
-cmd_/home/nambker/device_example_char/device_example_char.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/nambker/device_example_char/device_example_char.ko /home/nambker/device_example_char/device_example_char.o /home/nambker/device_example_char/device_example_char.mod.o ;  true
